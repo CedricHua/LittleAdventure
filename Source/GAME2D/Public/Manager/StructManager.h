@@ -16,7 +16,15 @@ USTRUCT(Blueprintable)
 struct FTASK_System : public FTableRowBase
 {
 	GENERATED_BODY()
-	
+
+	FTASK_System()
+	{
+		TargetNPC = ECharacter_Names::Null;  // 默认值
+		TaskText = FText::GetEmpty();  // 默认空文本
+		DialogueToShow = nullptr;  // 默认空指针
+		TargetActor = nullptr;  // 默认空指针
+	}
+
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	ECharacter_Names TargetNPC;
@@ -36,7 +44,18 @@ USTRUCT(Blueprintable)
 struct FDIALOGUE : public FTableRowBase
 {
 	GENERATED_BODY()
-	
+
+	FDIALOGUE()
+	{
+		PeopleImage = nullptr;  // 默认值
+		Name = ECharacter_Names::Null;  // 默认值
+		Text = "";  // 默认空文本
+		bShouldCallEvent = false;  // 默认值
+		bDialogueIsEnd = false;  // 默认值
+		bMissionComplete = false;  // 默认值
+		bAutoSave = false;  // 默认值
+	}
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	UTexture2D* PeopleImage;
 
@@ -65,6 +84,20 @@ USTRUCT(Blueprintable)
 struct FItem_Struct : public FTableRowBase
 {
 	GENERATED_BODY()
+	FItem_Struct()
+	{
+		ItemClass = nullptr;  // 默认空指针
+		Name = "";  // 默认空字符串
+		Description = "";  // 默认空字符串
+		Index = 0;  // 默认值
+		Icon = nullptr;  // 默认空指针
+		Count = 0;  // 默认值
+		Max_Count = 0;  // 默认值
+		Can_Stack = true;  // 默认值
+		EquipIndex = 0;  // 默认值
+		Item_Type = EItem_type::Weapon;  // 默认值
+	}
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	AItemBase* ItemClass;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
@@ -93,6 +126,24 @@ struct FPlayerSaveData
 {
 	// 存档时的属性
 	GENERATED_BODY()
+
+	FPlayerSaveData()
+	{
+		SaveHP = 100.0f;  // 默认值
+		SaveMP = 100.0f;  // 默认值
+		SaveArmor = 0.0f;  // 默认值
+		SaveLevel = 1;  // 默认等级
+		SaveExp = 0.0f;  // 默认经验
+		SaveMoney = 0;  // 默认金币
+		SaveMissionIndex = 0;  // 默认大任务
+		SaveTaskIndex = 0;  // 默认小任务
+		SaveKillCnt = 0;  // 默认KillCnt
+		SaveEquipCnt = 0;  // 默认EquipCnt
+		SaveTargetNPC = ECharacter_Names::Null;  // 默认目标NPC
+		PlayerLocation = FVector::ZeroVector;  // 默认位置
+		PlayerEquipWeapon = "";  // 默认主武器
+	}
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float SaveHP;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

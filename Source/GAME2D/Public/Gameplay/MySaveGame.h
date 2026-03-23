@@ -40,5 +40,8 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData MP;
+
+	UPROPERTY()
+	UMySaveGame* CurrentSaveGame;  // 持久化持有对象
 	
 };

@@ -46,5 +46,5 @@ public:
 	void RefreshBackPack();  //BackPackUI创建时执行
 	
 	UFUNCTION(BlueprintCallable,Category="BackPackSystem")
-	void RefreshEquip(int32 EquipIndex);
+	void RefreshEquip(TArray<FItem_Struct> ItemArr,int32 EquipIndex);
 };

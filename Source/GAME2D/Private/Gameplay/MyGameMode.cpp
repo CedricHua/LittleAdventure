@@ -37,7 +37,7 @@ void AMyGameMode::BeginPlay()
 			ABaseCharacter* Player = Cast<ABaseCharacter>(PC->GetPawn());
 			if (Player && Player->TaskSystemComp)
 			{
-				// 使用弱引用捕获，避免悬垂指针
+
 				TWeakObjectPtr<UTaskSystemComp> WeakTaskComp = Player->TaskSystemComp;
 			
 				FTimerHandle TimerHandle;
@@ -57,8 +57,6 @@ void AMyGameMode::BeginPlay()
 			}
 		}
 	}
-	
-
 	// 重新启用玩家移动
 	UMyBlueprintFunctionLibrary::PlayerMoveController(true, this);
 }
@@ -80,7 +78,7 @@ void AMyGameMode::SetPlayerSpawnPoint()
 		Player->SetActorLocation(FVector(-2034.0f, -6.0f, 12.0f));
 		break;
 	case 1:
-		Player->SetActorLocation(FVector(0.0f, 500.0f, 12.0f));
+		Player->SetActorLocation(FVector(490.0f, 500.0f, 12.0f));
 		break;
 	case 2:
 		Player->SetActorLocation(FVector(180.0f, -1480.0f, 15.0f));
@@ -89,7 +87,6 @@ void AMyGameMode::SetPlayerSpawnPoint()
 		Player->SetActorLocation(FVector(-1650.0f, 760.0f, 12.0f));
 		break;
 	case 5:
-		
 		Player->SetActorLocation(FVector(1170.0f, -1480.0f, 15.0f));
 		break;
 	}

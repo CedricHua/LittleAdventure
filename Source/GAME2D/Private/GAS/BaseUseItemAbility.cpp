@@ -60,7 +60,7 @@ void UBaseUseItemAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handl
             if (SpecHandle.IsValid())
             {
                 ASC->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
-                GEngine->AddOnScreenDebugMessage(1, 5.0f, FColor::Red, TEXT("GE激活"));
+                //GEngine->AddOnScreenDebugMessage(1, 5.0f, FColor::Red, TEXT("GE激活"));
                 
             }
         }

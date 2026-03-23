@@ -48,10 +48,11 @@ void UUMG_Backpack::RefreshBackPack()
 	}
 }
 
-void UUMG_Backpack::RefreshEquip(int32 EquipIndex)
+void UUMG_Backpack::RefreshEquip(TArray<FItem_Struct> ItemArr,int32 EquipIndex)
 {
-	UMyGameInstance* GameInstance = Cast<UMyGameInstance>(GetWorld()->GetGameInstance());
-	EquipTransfer= GameInstance->Equip_Array;
+	// UMyGameInstance* GameInstance = Cast<UMyGameInstance>(GetWorld()->GetGameInstance());
+	// EquipTransfer= GameInstance->Equip_Array;
+	EquipTransfer = ItemArr;
 	switch (EquipIndex)
 	{
 	case 0:
@@ -67,5 +68,4 @@ void UUMG_Backpack::RefreshEquip(int32 EquipIndex)
 		BuffSlot->SetSlot();
 		break;
 	}
-	
 }

@@ -46,6 +46,6 @@ void ABaseEnemy::SetCurrentDir(float X, float Y)
 ACharacter* ABaseEnemy::E_SpawnAndHit(float X, float Y)
 {
 	SetCurrentDir(0,0);
-	GEngine->AddOnScreenDebugMessage(1,5.0f,FColor::Yellow,FString::Printf(TEXT("Dir_X:%f,Dir_Y:%f"),E_Dir_X ,E_Dir_Y));
+	// GEngine->AddOnScreenDebugMessage(1,5.0f,FColor::Yellow,FString::Printf(TEXT("Dir_X:%f,Dir_Y:%f"),E_Dir_X ,E_Dir_Y));
 	return SpawnAndHit(E_Dir_X,E_Dir_Y);
 }

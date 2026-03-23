@@ -228,7 +228,7 @@ void ABaseCharacter::GetExperience(float inExperience, TSubclassOf<UGameplayEffe
 	HUD_All_UI->UMG_Main->Bar_Experience->SetPercent(FMath::Fmod(C_XP, 100.0f) / 100);
 
 	int32 NewLevel = FMath::FloorToInt(C_XP / 100.0f);
-	GEngine->AddOnScreenDebugMessage(1, 5.0f, FColor::Red, FString::Printf(TEXT("NewLevel:%d  PlayerLevel:%d"), NewLevel,MyGameInstance->PlayerLevel));
+	//GEngine->AddOnScreenDebugMessage(1, 5.0f, FColor::Red, FString::Printf(TEXT("NewLevel:%d  PlayerLevel:%d"), NewLevel,MyGameInstance->PlayerLevel));
 	if (NewLevel > MyGameInstance->PlayerLevel)  // 检测到玩家等级发生变化
 	{
 		// 设置玩家等级
@@ -240,14 +240,14 @@ void ABaseCharacter::GetExperience(float inExperience, TSubclassOf<UGameplayEffe
 			// 创建Effect Context
 			FGameplayEffectContextHandle ContextHandle = ASC->MakeEffectContext();
 			ContextHandle.AddSourceObject(this);
-			GEngine->AddOnScreenDebugMessage(2, 5.0f, FColor::Blue, FString::Printf(TEXT("NewLevel:%d  PlayerLevel:%d"), NewLevel,MyGameInstance->PlayerLevel));
+			//GEngine->AddOnScreenDebugMessage(2, 5.0f, FColor::Blue, FString::Printf(TEXT("NewLevel:%d  PlayerLevel:%d"), NewLevel,MyGameInstance->PlayerLevel));
 			// 应用GE
 			ASC->ApplyGameplayEffectToSelf(
 				LevelUpEffectClass.GetDefaultObject(),  // 获取GE的默认对象
 				static_cast<float>(MyGameInstance->PlayerLevel),  // 将PlayerLevel转为float
 				ContextHandle                            // 上下文
 			);
-			GEngine->AddOnScreenDebugMessage(2, 5.0f, FColor::Blue, FString::Printf(TEXT("应用GE，应用时：PlayerLevel:%d"), MyGameInstance->PlayerLevel));
+			//GEngine->AddOnScreenDebugMessage(2, 5.0f, FColor::Blue, FString::Printf(TEXT("应用GE，应用时：PlayerLevel:%d"), MyGameInstance->PlayerLevel));
 		}
 	}
 }
